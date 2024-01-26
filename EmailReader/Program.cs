@@ -57,34 +57,7 @@ public class Program
                     var matches2 = regexInfo.Matches(sections[0]);
 
                     var keyValuePairs = new Dictionary<string, string>();
-                    /*
-                    foreach (Match match in matches2)
-                    {
-                        // The first group is the key and the second group is the value
-                        string key = match.Groups[1].Value.Trim();
-                        string value = match.Groups[2].Value.Trim();
-
-                        // Add the key-value pair to the dictionary
-                        keyValuePairs[key] = value;
-                    }
-                    foreach (var pair in keyValuePairs)
-                    {
-                        Console.WriteLine($"{pair.Key}: {pair.Value}");
-                    }
-                    // Console.WriteLine(parts1[0]);
-                    foreach (Match match in matches)
-                    {
-                        if (match.Groups[2].Value!="123456789"){
-                        Console.WriteLine($"Product Number: {match.Groups[1].Value}");
-                        Console.WriteLine($"Product Code: {match.Groups[2].Value}");
-                        Console.WriteLine($"Product Name: {match.Groups[3].Value}");
-                        Console.WriteLine($"Quantity: {match.Groups[4].Value}");
-                        Console.WriteLine($"Unit Price: {match.Groups[5].Value}");
-                        Console.WriteLine($"Total Price: {match.Groups[6].Value}");
-
-                        }
-                    }*/
-
+                 
                     // Create a new Bill object
                     var bill = new Bill();
                     try
