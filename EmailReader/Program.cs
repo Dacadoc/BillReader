@@ -2,16 +2,16 @@
 using MailKit.Search;
 using System.Text.RegularExpressions;
 using System.Text.Json;
-using EmailReader;
 using System.Text;
 using System.Configuration;
+using Tesseract;
 namespace EmailReader
 {
     public class Program
     {
         public static void Main(string[] args)
         {
-            GenerateProductHistory();
+            ReadBillImage();
             //ReadEBills();
         }
 
@@ -190,6 +190,28 @@ namespace EmailReader
             }
 
         }
+
+        private static void ReadBillImage()
+        {
+           
+
+                using (var engine = new TesseractEngine(@"./tessdata", "eng", EngineMode.Default))
+                {
+                    using (var img = Pix.LoadFromFile("./bill.png"))
+                    {
+                        using (var page = engine.Process(img))
+                        {
+                            var text = page.GetText();
+                            Console.WriteLine("Mean confidence: {0}", page.GetMeanConfidence());
+
+                            Console.WriteLine("Text (GetText): \r\n{0}", text);
+                        }
+                    }
+                }
+            
+        }
+
     }
 }
+
 
